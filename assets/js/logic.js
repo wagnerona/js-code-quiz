@@ -10,13 +10,15 @@ let finalScore = document.querySelector("#final-score");
 let submitBtn = document.querySelector("#submit");
 let initialsEl = document.querySelector("#initials");
 let feedbackEl = document.querySelector("#feedback");
-let startDiv = document.querySelector(".wrapper");
+// let startDiv = document.querySelector(".wrapper");
 
 let timer, timerCount
+let score = 0;
 let currentQuestionIndex = 0;
 
 // The startGame function is called when the start Quiz is clicked
 function startGame() {
+  // endQuiz();
   timerCount = 30;
   // Prevents start button from being clicked when round is in progress
   startButton.disabled = true;
@@ -60,6 +62,7 @@ function selectAnswer(e) {
     feedbackEl.innerText = "Correct!";
     feedbackEl.setAttribute("class", "feedback show correct");
     selectedButton.style.backgroundColor = "green";
+    score++;
   } else {
     feedbackEl.innerText = "Incorrect!";
     feedbackEl.setAttribute("class", "feedback show incorrect");
@@ -80,12 +83,30 @@ function selectAnswer(e) {
 
 function endQuiz() {
   clearInterval(timer);
-  questionScreen.setAttribute("class", "hide");
+  questionTitle.setAttribute("class", "hide");
   choices.setAttribute("class", "hide");
   quizEnd.setAttribute("class", "show");
+  finalScore.innerText = score + "/5";
 
 }
 
 startButton.addEventListener("click", startGame);
 
+
+
+submitBtn.addEventListener("click", function (event) {
+  event.preventDefault();
+
+  let initials = document.querySelector("#initials").value;
+  let userScore = score;
+  if (initials === "") {
+    alert("error, field cannot be blank");
+  } else {
+    alert("Registered successfully");
+
+    // Save email and password to localStorage and render the last registered.
+    localStorage.setItem("Initials", initials);
+    localStorage.setItem("Score", userScore);
+  }
+});
 
