@@ -12,14 +12,14 @@ let initialsEl = document.querySelector("#initials");
 let feedbackEl = document.querySelector("#feedback");
 let startDiv = document.querySelector(".wrapper");
 
-let currentQuestionIndex
+let currentQuestionIndex = 0;
 
 // The startGame function is called when the start Quiz is clicked
 function startGame() {
   timerCount = 30;
   // Prevents start button from being clicked when round is in progress
   startButton.disabled = true;
-  // startTimer();
+  startTimer();
   currentQuestionIndex = 0;
   startScreen.remove();
   setQuestion(quizQuestions[currentQuestionIndex]);
@@ -28,27 +28,60 @@ function startGame() {
 
 // timer 
 
-// function startTimer() {
-//   // Sets timer
-//   timer = setInterval(function () {
-//     timerCount--;
-//     timerElement.textContent = timerCount;
-//     if (timerCount === 0) {
-//       clearInterval(timer);
-//     }
-//   }, 1000);
-// }
+function startTimer() {
+  // Sets timer
+  timer = setInterval(function () {
+    timerCount--;
+    timerElement.textContent = timerCount;
+    if (timerCount === 0) {
+      clearInterval(timer);
+    }
+  }, 800);
+}
 
 function setQuestion(quizQuestions) {
   questionScreen.setAttribute("class", "show");
   questionTitle.innerText = quizQuestions.prompt;
+  choices.innerHTML = "";
+  for (let i = 0; i < quizQuestions.answers.length; i++) {
+    let answerBtn = document.createElement("button");
+    answerBtn.setAttribute("class", "choiceBtn");
+    answerBtn.innerText = quizQuestions.answers[i];
+    answerBtn.addEventListener("click", selectAnswer);
+    choices.appendChild(answerBtn);
+  }
 
 }
 
-function selectAnswer() {
+function selectAnswer(e) {
+  const selectedButton = e.target;
+  if (selectedButton.innerText === quizQuestions[currentQuestionIndex].rightAnswer) {
+    feedbackEl.innerText = "Correct!";
+    feedbackEl.setAttribute("class", "feedback show correct");
+    selectedButton.style.backgroundColor = "green";
+  } else {
+    feedbackEl.innerText = "Incorrect!";
+    feedbackEl.setAttribute("class", "feedback show incorrect");
+    selectedButton.style.backgroundColor = "red";
+    // timerCount -= 10;
+  } setTimeout(() => {
+    feedbackEl.setAttribute("class", "hide");
+    currentQuestionIndex++;
+    if (currentQuestionIndex < quizQuestions.length) {
+      setQuestion(quizQuestions[currentQuestionIndex]);
+    } else {
+      endQuiz();
+    }
+  }, 500);
 
 }
 
+
+function endQuiz() {
+  questionTitle.innerText = "Quiz has come to an end"
+  choices.setAttribute("class", "hide");
+  
+}
 
 startButton.addEventListener("click", startGame);
 
