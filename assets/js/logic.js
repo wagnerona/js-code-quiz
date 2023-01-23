@@ -12,36 +12,44 @@ let initialsEl = document.querySelector("#initials");
 let feedbackEl = document.querySelector("#feedback");
 let startDiv = document.querySelector(".wrapper");
 
+let currentQuestionIndex
 
 // The startGame function is called when the start Quiz is clicked
 function startGame() {
   timerCount = 30;
   // Prevents start button from being clicked when round is in progress
   startButton.disabled = true;
-  startTimer();
+  // startTimer();
+  currentQuestionIndex = 0;
   startScreen.remove();
-  displayQuiz();
+  setQuestion(quizQuestions[currentQuestionIndex]);
 }
 
 
 // timer 
 
-function startTimer() {
-  // Sets timer
-  timer = setInterval(function () {
-    timerCount--;
-    timerElement.textContent = timerCount;
-    if (timerCount === 0) {
-      clearInterval(timer);
-    }
-  }, 1000);
+// function startTimer() {
+//   // Sets timer
+//   timer = setInterval(function () {
+//     timerCount--;
+//     timerElement.textContent = timerCount;
+//     if (timerCount === 0) {
+//       clearInterval(timer);
+//     }
+//   }, 1000);
+// }
+
+function setQuestion(quizQuestions) {
+  questionScreen.setAttribute("class", "show");
+  questionTitle.innerText = quizQuestions.prompt;
+
 }
 
-function displayQuiz() {
-  questionScreen.setAttribute("class", "show");
-  questionTitle.textContent = "test";
-  console.log(questionTitle)
+function selectAnswer() {
+
 }
 
 
 startButton.addEventListener("click", startGame);
+
+
