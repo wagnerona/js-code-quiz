@@ -12,6 +12,7 @@ let initialsEl = document.querySelector("#initials");
 let feedbackEl = document.querySelector("#feedback");
 let startDiv = document.querySelector(".wrapper");
 
+let timer, timerCount
 let currentQuestionIndex = 0;
 
 // The startGame function is called when the start Quiz is clicked
@@ -33,10 +34,10 @@ function startTimer() {
   timer = setInterval(function () {
     timerCount--;
     timerElement.textContent = timerCount;
-    if (timerCount === 0) {
-      clearInterval(timer);
+    if (timerCount <= 0) {
+      endQuiz();
     }
-  }, 800);
+  }, 1000);
 }
 
 function setQuestion(quizQuestions) {
@@ -63,7 +64,7 @@ function selectAnswer(e) {
     feedbackEl.innerText = "Incorrect!";
     feedbackEl.setAttribute("class", "feedback show incorrect");
     selectedButton.style.backgroundColor = "red";
-    // timerCount -= 10;
+    timerCount -= 10;
   } setTimeout(() => {
     feedbackEl.setAttribute("class", "hide");
     currentQuestionIndex++;
@@ -78,9 +79,11 @@ function selectAnswer(e) {
 
 
 function endQuiz() {
-  questionTitle.innerText = "Quiz has come to an end"
+  clearInterval(timer);
+  questionScreen.setAttribute("class", "hide");
   choices.setAttribute("class", "hide");
-  
+  quizEnd.setAttribute("class", "show");
+
 }
 
 startButton.addEventListener("click", startGame);
