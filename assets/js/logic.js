@@ -97,16 +97,18 @@ startButton.addEventListener("click", startGame);
 submitBtn.addEventListener("click", function (event) {
   event.preventDefault();
 
-  let initials = document.querySelector("#initials").value;
-  let userScore = score;
-  if (initials === "") {
+  let user = {
+    initials: initialsEl.value.trim(),
+    userScore: score,
+  };
+
+  if (user.initials === "") {
     alert("error, field cannot be blank");
   } else {
     alert("Registered successfully");
 
-    // Save email and password to localStorage and render the last registered.
-    localStorage.setItem("Initials", initials);
-    localStorage.setItem("Score", userScore);
+    console.log(user);
+    localStorage.setItem("user", JSON.stringify(user));
   }
 });
 
