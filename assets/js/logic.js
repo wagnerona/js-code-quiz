@@ -109,6 +109,7 @@ submitBtn.addEventListener("click", function (event) {
 
     console.log(user);
     localStorage.setItem("user", JSON.stringify(user));
+
   }
 });
 
