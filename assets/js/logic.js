@@ -108,7 +108,8 @@ startButton.addEventListener("click", startGame);
 
 // }
 
-
+let highScores = document.querySelector("#highscores");
+let clearBtn = document.querySelector("#clear");
 
 submitBtn.addEventListener("click", function (event) {
   event.preventDefault();
@@ -124,8 +125,16 @@ submitBtn.addEventListener("click", function (event) {
     alert("Registered successfully");
 
     console.log(user);
-    localStorage.setItem("user", JSON.stringify(user));
 
+    // Retrieve existing user array from local storage
+    let userArray = JSON.parse(localStorage.getItem("users")) || [];
+
+    // Push new user object to array
+    userArray.push(user);
+
+    // Store updated array in local storage
+    localStorage.setItem("users", JSON.stringify(userArray));
   }
 });
+
 
