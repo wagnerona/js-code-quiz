@@ -94,6 +94,22 @@ startButton.addEventListener("click", startGame);
 
 
 
+// submitBtn.onclick = function () {
+
+//   let key = initialsEl.value.trim();
+//   let value = score
+
+//   console.log(key);
+//   console.log(value);
+
+//   if (key && value) {
+//     localStorage.setItem(key, value);
+//   }
+
+// }
+
+
+
 submitBtn.addEventListener("click", function (event) {
   event.preventDefault();
 

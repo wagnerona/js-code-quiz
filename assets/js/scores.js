@@ -1,6 +1,24 @@
 let highScores = document.querySelector("#highscores");
 let clearBtn = document.querySelector("#clear");
 
+// let highScore = document.createElement("li")
+
+// for (let i = 0; i < localStorage.length; i++) {
+//     const key = localStorage.key(i);
+//     const value = localStorage.getItem(key);
+
+//     highScore.innerText += key + value;
+//     highScores.appendChild(highScore);
+// }
+
+
+
+
+
+
+
+
+
 let lastUser = JSON.parse(localStorage.getItem("user"));
 console.log(lastUser)
 
