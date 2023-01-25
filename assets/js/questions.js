@@ -1,4 +1,4 @@
-// questions 
+// questions for Quiz
 let quizQuestions = [
     {
         prompt: "What is the correct way to write a JavaScript array?",

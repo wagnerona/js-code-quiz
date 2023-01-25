@@ -60,4 +60,4 @@ https://javascript.info/
 
 ## License
 
-Please read in repo
+Please read in repo.
