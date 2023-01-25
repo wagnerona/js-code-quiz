@@ -34,12 +34,12 @@ let quizQuestions = [
     {
         prompt: "How do you declare a variable in JavaScript?",
         answers: [
-            'var x;',
-            'x = 5;',
             'let x;',
+            'x = 5;',
+            'let: x;',
             'x: 5;'
         ],
-        rightAnswer: 'var x;'
+        rightAnswer: 'let x;'
     },
 
     {
