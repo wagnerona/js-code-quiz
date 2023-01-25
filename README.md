@@ -19,21 +19,22 @@ AS A coding boot camp student
 I WANT to take a timed quiz on JavaScript fundamentals that stores high scores
 SO THAT I can gauge my progress compared to my peers
 ```
+
 ## Acceptance Criteria
 
 Create a code quiz that contains the following requirements:
 
-* A start button that when clicked a timer starts and the first question appears.
- 
-  * Questions contain buttons for each answer.
-  * 
-  * When answer is clicked, the next question appears
-  * 
-  * If the answer clicked was incorrect then subtract time from the clock
+- A start button that when clicked a timer starts and the first question appears.
 
-* The quiz should end when all questions are answered or the timer reaches 0.
+  - Questions contain buttons for each answer.
+  -
+  - When answer is clicked, the next question appears
+  -
+  - If the answer clicked was incorrect then subtract time from the clock
 
-  * When the game ends, it should display their score and give the user the ability to save their initials and their score
+- The quiz should end when all questions are answered or the timer reaches 0.
+
+  - When the game ends, it should display their score and give the user the ability to save their initials and their score
 
 ## Mock-Up
 
@@ -41,14 +42,15 @@ The following GIF demonstrates the application functionality:
 
 <img src = "./assets/gif/Coding Quiz.gif">
 
-
 ## Challenges and bugs
 
 1. Input box for initials takes more than 3 characters and numbers, with more time I can add a if condition to check for these
 
-2. Not really a bug but the sound of a correct answer or not was not included in the code
+2. Highscores is not sorted for highest to lowest score
 
-3. Code might be a bit messy, this has so far been one of the hardest challenges yet. I had to use resources from all over the place and at points doubted whether it was the correct way to do it, nonetheless it runs / could use some optimization
+3. Not really a bug but the sound of a correct answer or not was not included in the code
+
+4. Code might be a bit messy, this has so far been one of the hardest challenges yet. I had to use resources from all over the place and at points doubted whether it was the correct way to do it, nonetheless it runs / could use some optimization
 
 ## Resources
 
