@@ -10,7 +10,7 @@ https://wagnerona.github.io/js-code-quiz/index.html
 
 ## Source code
 
-https://github.com/wagnerona/password-generator
+https://github.com/wagnerona/js-code-quiz
 
 ## User Story
 
